@@ -1,3 +1,4 @@
+/* eslint-disable */
 import './style.css'
 
 const listsContainer = document.querySelector("[data-lists]");
@@ -43,15 +44,10 @@ function render() {
     checkBox.setAttribute("type", "checkbox");
     listElement.appendChild(checkBox);
 
-    const paragraph = document.createElement("p");
+    const paragraph = document.createElement('p');
     paragraph.innerHTML = list.activity;
     listElement.appendChild(paragraph);
 
-    // const icon = document.createElement("i");
-    // icon.className.add = "fa-solid fa-ellipsis-vertical";
-    // listElement.appendChild(icon);
-
-    // listElement.innerHTML = list.activity
     listsContainer.appendChild(listElement);
   });
 }
