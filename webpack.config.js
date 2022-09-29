@@ -26,6 +26,8 @@ module.exports = {
         ]
     },
     devServer: {
-        static: './dist',
+        watchFiles: ['src/*'],
+        hot: true,
+        // static: './dist',
     },
 }
