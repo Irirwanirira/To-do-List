@@ -2,8 +2,8 @@ body {
   padding: 0;
   margin: 0;
   background-color: aqua;
-    
 }
+
 .all-task {
   background-color: #fff;
   margin: 20px;
@@ -16,7 +16,7 @@ body {
 .introduction {
   display: flex;
   align-items: center;
-  justify-content: space-between;  
+  justify-content: space-between;
 }
 
 form {
@@ -25,7 +25,7 @@ form {
 }
 
 form > input,
-form > button  {
+form > button {
   border: 1px hidden;
 }
 
@@ -48,3 +48,5 @@ form > button  {
   padding: 10px;
   border: none;
 }
+
+/* end */
