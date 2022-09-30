@@ -1,26 +1,31 @@
 /* eslint-disable */
 import './style.css'
 
-const listsContainer = document.querySelector("[data-lists]");
-const newListForm = document.querySelector("[data-new-list-form]");
-const newListInput = document.querySelector("[data-new-list-input]");
 
-const Local_storage_list_key = "task.lists";
+const listsContainer = document.querySelector('.task-list');
+const newListForm = document.querySelector('[data-new-list-form]');
+const newListInput = document.querySelector('[data-new-list-input]');
 
-let lists = JSON.parse(localStorage.getItem(Local_storage_list_key)) || [];
+const Local_storage_list_key = 'task.lists';
 
-newListForm.addEventListener("submit", (e) => {
+let lists = JSON.parse(localStorage.getItem(Local_storage_list_key)) ||[];
+
+newListForm.addEventListener('submit', (e) => {
   e.preventDefault();
   const listName = newListInput.value;
-  if (listName == null || listName === "") return;
+  if (listName == null || listName === '') return;
   const list = createList(listName);
   newListInput.value = null;
   lists.push(list);
+
   saveAndRender();
 });
 
 function createList(activity) {
-  return { id: Date.now().toString(), activity: activity, tasks: false };
+  return { id: Date.now().toString(), activity: activity, performance: false };
+}
+function save() {
+  localStorage.setItem(Local_storage_list_key, JSON.stringify(lists));
 }
 
 function saveAndRender() {
@@ -28,34 +33,55 @@ function saveAndRender() {
   render();
 }
 
-function save() {
-  localStorage.setItem(Local_storage_list_key, JSON.stringify(lists));
+
+
+
+
+// let lists = [
+//   {
+//   activity: 'swimming',
+//   completed: false,
+//   id: 0,
+// },
+
+// {
+//   activity: 'studying',
+//   completed: false,
+//   id: 0,
+// },
+
+// ]
+
+function render(){
+  
+ clearElement(listsContainer);
+
+  const myDynamicTask = lists.map((list) => `
+
+    <li class="list-name">
+        <div class="input_label">
+            <input type="checkbox" value>  
+            <label for="list">${list.activity}</label>
+        </div>
+      
+        <i class="fa-solid fa-ellipsis-vertical" id = 'trippleDots'></i>
+
+    </li>
+
+  `)
+  // console.log(myDynamicTask) 
+  // console.log(clearElement)
+
+  listsContainer.innerHTML = myDynamicTask.join(''); 
+
 }
 
-function render() {
-  clearElement(listsContainer);
-  lists.forEach((list) => {
-    const listElement = document.createElement("li");
-    listElement.dataset.listId = list.id;
-    listElement.classList.add = "list-name";
-    // listElement.className.padEnd = 'list-name'
-
-    const checkBox = document.createElement("input");
-    checkBox.setAttribute("type", "checkbox");
-    listElement.appendChild(checkBox);
-
-    const paragraph = document.createElement('p');
-    paragraph.innerHTML = list.activity;
-    listElement.appendChild(paragraph);
-
-    listsContainer.appendChild(listElement);
-  });
-}
-
-function clearElement(element) {
-  while (element.firstChild) {
-    element.removeChild(element.firstChild);
+function clearElement(element){
+  while(element.firstChild){
+    element.removeChild(element.firstChild)
   }
 }
 
-render();
+render()
+
+
