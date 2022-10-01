@@ -1,56 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://kit.fontawesome.com/56d99cc5b2.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="/index.css">
-    <title>to-do-list</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://kit.fontawesome.com/95c0469538.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="/style.css">
 <script defer src="main.js"></script></head>
 <body>
-    <div class="all-task">
-        <div class="introduction">
-            <h2> Today's task</h2>
-            <i class="fas fa-sync-alt"></i>
+  <main>
+    <section class="container">
+      <header>
+        <h2 class="todoHeader">Today's to-do</h2>
+        <i class="fa-solid fa-arrows-rotate arrow"></i>
+      </header>
+
+      <section>
+        <form >
+          <hr>
+            <div class="align">
+                <input type="text" class="input" id="input" placeholder="add to your list">
+                <button type="submit" class="formBtn"><i class="fa fa-share" id="add"></i></button>
+            </div>
+            
+
+          <hr>
+        </form>
+        <div class="todoContainer">
+
         </div>
         
-
-        <form action="" data-new-list-form > 
-            <input 
-            type="text"
-            class="new-list"
-            data-new-list-input
-            placeholder="add to your list..."
-            aria-label="new list label"/>
-            <button type="submit"><i class="fa fa-share" id="add"></i></button>
-        </form>
-
-        <ul class="task-list" data-lists> 
-            <!-- <li class="list-name" > 
-                <div class="input_label">
-                    <input type="checkbox" value= 'singing'>  
-                    <label for="list">singing</label>
-                </div>
-             
-                <i class="fa-solid fa-ellipsis-vertical" id = 'trippleDots'></i>
-
-            </li> -->
-            <!-- <li class="list-name" > 
-                <div class="input_label">
-                    <input type="checkbox" value= 'singing'>  
-                    <label for="list">singing</label>
-                </div>
-             
-             <i class="fa-solid fa-ellipsis-vertical" id = 'trippleDots'></i>
-
-            </li> -->
-
-        </ul>
-        <button type="button" id="btnClear">Clear all completed</button>
-
-    </div>
-
-    <script src="./index.js"></script>
+        <div class="clear">
+          <button type="button" id="clear-completed" class="clear-completed">Clear all completed</button>
+        </div>
+      </section>
+    </section>
+  </main>
+  <script src="/index.js"></script>
 </body>
 </html>
