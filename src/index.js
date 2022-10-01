@@ -1,87 +1,78 @@
 /* eslint-disable */
+// import { LibraryTemplatePlugin } from 'webpack';
 import './style.css'
 
+const form = document.querySelector('form');
+const input = document.querySelector('.input');
+const todoContainer = document.querySelector('.todoContainer');
 
-const listsContainer = document.querySelector('.task-list');
-const newListForm = document.querySelector('[data-new-list-form]');
-const newListInput = document.querySelector('[data-new-list-input]');
+let todo;
+let todos = JSON.parse(localStorage.getItem('todos')) || [];
+const store = () => {
+  todo = {
+    Description: input.value,
+    id: todos.length,
+    completed: false,
+  };
+  todos.push(todo);
+  localStorage.setItem('todos', JSON.stringify(todos));
+};
 
-const Local_storage_list_key = 'task.lists';
+const clear = () => {
+  input.value = '';
+};
 
-let lists = JSON.parse(localStorage.getItem(Local_storage_list_key)) ||[];
+const removeBook = (id) => {
+  todos = todos.filter((books) => books.id !== id);
+  todos.forEach((todo, id) => {
+    todo.id = id;
+  });
+  localStorage.setItem('todos', JSON.stringify(todos));
+};
 
-newListForm.addEventListener('submit', (e) => {
+const addTask = (todo) => {
+  const ul = document.createElement('div');
+  const checkBox = document.createElement('input');
+  checkBox.type = 'checkbox';
+  checkBox.classList.add('checkBox');
+  const newInp = document.createElement('input');
+  newInp.type = 'text';
+  newInp.classList.add('newInput');
+  newInp.value = todo.Description;
+  const icon = document.createElement('i');
+  icon.classList.add('fa-solid');
+  icon.classList.add('fa-ellipsis-vertical');
+  icon.classList.add('dots');
+  const hr = document.createElement('hr');
+  ul.append(checkBox, newInp, icon, hr);
+  todoContainer.append(ul);
+  icon.addEventListener('click', () => {
+    icon.parentElement.remove();
+    removeBook(todo.id);
+  });
+};
+todos.forEach(addTask);
+
+const editTodoList = () => {
+  const editInput = document.querySelectorAll('.newInput');
+  editInput.forEach((edits, indexy) => {
+    edits.addEventListener('change', () => {
+      todos.forEach((todo, index) => {
+        if (indexy === index) {
+          todo.Description = edits.value;
+          localStorage.setItem('todos', JSON.stringify(todos));
+        }
+      });
+    });
+  });
+};
+editTodoList();
+
+form.addEventListener('submit', (e) => {
   e.preventDefault();
-  const listName = newListInput.value;
-  if (listName == null || listName === '') return;
-  const list = createList(listName);
-  newListInput.value = null;
-  lists.push(list);
-
-  saveAndRender();
-});
-
-function createList(activity) {
-  return { id: Date.now().toString(), activity: activity, performance: false };
-}
-function save() {
-  localStorage.setItem(Local_storage_list_key, JSON.stringify(lists));
-}
-
-function saveAndRender() {
-  save();
-  render();
-}
-
-
-
-
-
-// let lists = [
-//   {
-//   activity: 'swimming',
-//   completed: false,
-//   id: 0,
-// },
-
-// {
-//   activity: 'studying',
-//   completed: false,
-//   id: 0,
-// },
-
-// ]
-
-function render(){
-  
- clearElement(listsContainer);
-
-  const myDynamicTask = lists.map((list) => `
-
-    <li class="list-name">
-        <div class="input_label">
-            <input type="checkbox" value>  
-            <label for="list">${list.activity}</label>
-        </div>
-      
-        <i class="fa-solid fa-ellipsis-vertical" id = 'trippleDots'></i>
-
-    </li>
-
-  `)
-  // console.log(myDynamicTask) 
-  // console.log(clearElement)
-
-  listsContainer.innerHTML = myDynamicTask.join(''); 
-
-}
-
-function clearElement(element){
-  while(element.firstChild){
-    element.removeChild(element.firstChild)
+  if (input.value !== '') {
+    store();
+    addTask(todo);
+    clear();
   }
-}
-
-render()
-
-
+});
