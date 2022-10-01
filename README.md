@@ -1,6 +1,6 @@
 # To-do-list ## To-do-list
 
-**This is a simple website that displays a list of toDoes and allows you to add new task and delete a completed task from the list**
+**This is a simple website that displays a list of toDoes and allows you to add new task, adit task and delete a completed task from the list**
 
 ## Built With
 
@@ -11,7 +11,7 @@
 
 ## Live Demo
 
-- [Live Demo Link]().
+- [Live Demo Link](not yet).
 
 ## Getting Started
 
@@ -63,7 +63,8 @@ Give a ⭐️ if you like this project!
 
 ## Acknowledgments
 
-- Hat tip to anyone whose code was used
+- Codding partners
+- Morning session team for issue creation 
 - Microverse
 - etc
 
