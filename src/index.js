@@ -1,6 +1,5 @@
-/* eslint-disable */
 // import { LibraryTemplatePlugin } from 'webpack';
-import './style.css'
+import './style.css';
 
 const form = document.querySelector('form');
 const input = document.querySelector('.input');
