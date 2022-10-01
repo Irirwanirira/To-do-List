@@ -1,6 +1,6 @@
 import './style.css';
-import { clear } from './modules/clearUi';
 /* eslint-disable */
+import { clear } from './modules/clearUi';
 import { deleteItems, trueFalse } from './modules/interractions';
 /* eslint-enable */
 
