@@ -22,7 +22,7 @@ To get a local copy up and running follow these simple example steps.
 - Code editor (Vs code)
 
 ### Setup
-- clone 'https://github.com/Irirwanirira/Awesome-Books.git '
+- clone 'https://github.com/Irirwanirira/To-do-List '
 - Setup Linters by running following commands in your terminal:
 
 - npm install --save-dev stylelint@13.x stylelint-scss@3.x - - - stylelint-config-standard@21.x stylelint-csstree-validator@1.x (Install the StyleHint linters)
@@ -48,7 +48,7 @@ To get a local copy up and running follow these simple example steps.
 
 - GitHub: [@Irirwanirira](https://github.com/Irirwanirira)
 - Twitter: [@Iri_joseph](https://twitter.com/Irirwanirira)
-- LinkedIn: [Joseph IRIRWANIRIRA](https://linkedin.com/in/joseph-irirwanirira-74666623a/)
+- LinkedIn: [Joseph Irirwanirira](https://linkedin.com/in/joseph-irirwanirira-74666623a/)
 
 
 ## 🤝 Contributing
