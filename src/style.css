@@ -54,6 +54,7 @@ body {
   padding: 12px 0;
   font-style: italic;
   color: #2e2d2d;
+  cursor: pointer;
 }
 
 .align {
@@ -97,4 +98,11 @@ body {
 
 .add.done {
   text-decoration: line-through;
+}
+
+.completed {
+  text-decoration: line-through;
+  color: gray;
+  font-style: italic;
+  font-weight: lighter;
 }
