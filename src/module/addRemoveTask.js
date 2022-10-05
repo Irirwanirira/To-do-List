@@ -5,11 +5,13 @@ const todoContainer = document.querySelector('.todoContainer');
 let todos = [];
 let todo;
 
+// function  saving todos to the local storage
 const saveTodo = () => {
   const allTodos = JSON.stringify(todos);
   localStorage.setItem('todos', allTodos);
 };
 
+// function getting stored thing from the storage
 const getStoredTodos = () => {
   todos = JSON.parse(localStorage.getItem('todos'));
 };
@@ -24,10 +26,12 @@ const store = () => {
   saveTodo();
 };
 
+// function clearing the input field
 const clear = () => {
   input.value = '';
 };
 
+// stats stand for status
 const completedTodo = (stats, index) => {
   todos[index - 1].completed = stats;
   saveTodo();
@@ -41,6 +45,7 @@ const removeTask = (id) => {
   saveTodo();
 };
 
+// dynamic html with checkbox definition
 const addTask = (todo) => {
   const ul = document.createElement('div');
   const checkBox = document.createElement('input');
