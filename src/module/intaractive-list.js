@@ -1,6 +1,8 @@
+import addTask from './addRemove';
+
 const form = document.querySelector('form');
 const input = document.querySelector('.input');
-const todoContainer = document.querySelector('.todoContainer');
+// const todoContainer = document.querySelector('.todoContainer');
 
 let todos = [];
 let todo;
@@ -32,59 +34,59 @@ const clear = () => {
 };
 
 // stats stand for status
-const completedTodo = (stats, index) => {
-  todos[index - 1].completed = stats;
-  saveTodo();
-};
+// const completedTodo = (stats, index) => {
+//   todos[index - 1].completed = stats;
+//   saveTodo();
+// };
 
-const removeTask = (id) => {
-  todos = todos.filter((task) => task.id !== id);
-  todos.forEach((todo, id) => {
-    todo.id = id + 1;
-  });
-  saveTodo();
-};
+// const removeTask = (id) => {
+//   todos = todos.filter((task) => task.id !== id);
+//   todos.forEach((todo, id) => {
+//     todo.id = id + 1;
+//   });
+//   saveTodo();
+// };
 
 // dynamic html with checkbox definition
-const addTask = (todo) => {
-  const ul = document.createElement('div');
-  const checkBox = document.createElement('input');
-  checkBox.type = 'checkbox';
-  checkBox.classList.add('checkBox');
+// const addTask = (todo) => {
+//   const ul = document.createElement('div');
+//   const checkBox = document.createElement('input');
+//   checkBox.type = 'checkbox';
+//   checkBox.classList.add('checkBox');
 
-  const newInp = document.createElement('input');
-  newInp.type = 'text';
-  newInp.classList.add('newInput');
-  newInp.value = todo.Description;
+//   const newInp = document.createElement('input');
+//   newInp.type = 'text';
+//   newInp.classList.add('newInput');
+//   newInp.value = todo.Description;
 
-  checkBox.onclick = (e) => {
-    completedTodo(e.target.checked, todo.id);
+//   checkBox.onclick = (e) => {
+//     completedTodo(e.target.checked, todo.id);
 
-    if (todo.completed === true) {
-      newInp.classList.add('completed');
-    } else {
-      newInp.classList.remove('completed');
-    }
-  };
+//     if (todo.completed === true) {
+//       newInp.classList.add('completed');
+//     } else {
+//       newInp.classList.remove('completed');
+//     }
+//   };
 
-  if (todo.completed === true) {
-    checkBox.checked = 'checked';
-    newInp.classList.add('completed');
-  }
+//   if (todo.completed === true) {
+//     checkBox.checked = 'checked';
+//     newInp.classList.add('completed');
+//   }
 
-  const icon = document.createElement('i');
-  icon.classList.add('fa-solid');
-  icon.classList.add('fa-trash');
-  icon.classList.add('dots');
-  const hr = document.createElement('hr');
-  ul.append(checkBox, newInp, icon, hr);
-  todoContainer.append(ul);
-  icon.addEventListener('click', () => {
-    icon.parentElement.remove();
-    removeTask(todo.id);
-  });
-};
-todos.forEach(addTask);
+//   const icon = document.createElement('i');
+//   icon.classList.add('fa-solid');
+//   icon.classList.add('fa-trash');
+//   icon.classList.add('dots');
+//   const hr = document.createElement('hr');
+//   ul.append(checkBox, newInp, icon, hr);
+//   todoContainer.append(ul);
+//   icon.addEventListener('click', () => {
+//     icon.parentElement.remove();
+//     removeTask(todo.id);
+//   });
+// };
+// todos.forEach(addTask);
 
 const editTodoList = () => {
   const editInput = document.querySelectorAll('.newInput');
