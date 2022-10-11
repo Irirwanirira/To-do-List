@@ -1,9 +1,11 @@
-import { addTask, removeTask } from './addRemove';
+/* eslint-disable no-unused-expressions */
+
+import { addTask, removeTask } from './addRemove.js';
 
 describe('Ading and Removing a function', () => {
   test('adding to do task', () => {
     expect(addTask).not.toBeNull();
-  }),
+  });
 
   test('remove a task task', () => {
     expect(removeTask).not.toBeDefined;
