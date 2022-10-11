@@ -11,7 +11,7 @@
 
 ## Live Demo
 
-- [Live Demo Link](not yet).
+- [Live Demo Link](https://irirwanirira.github.io/To-do-List/).
 
 ## Getting Started
 
