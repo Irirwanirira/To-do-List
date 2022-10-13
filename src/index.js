@@ -1,9 +1,7 @@
 import {
-  clearCompleted,
-  editTodoList,
-  formSubmission,
-  populateTasks,
-} from './module/intaractive-list.js';
+  clearCompleted, formSubmission, editTodoList, populateTasks,
+
+} from './module/addRemove.js';
 import './style.css';
 
 const clearCompletedButton = document.getElementById('clear-completed');
