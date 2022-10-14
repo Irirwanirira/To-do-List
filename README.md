@@ -50,6 +50,10 @@ To get a local copy up and running follow these simple example steps.
 - Twitter: [@Iri_joseph](https://twitter.com/Irirwanirira)
 - LinkedIn: [Joseph Irirwanirira](https://linkedin.com/in/joseph-irirwanirira-74666623a/)
 
+👤 **Masouma Modarresi**
+- GitHub: [@Masouma864](https://github.com/Masouma864)
+- Twitter: [@Iri_joseph](https://twitter.com/MasoumaModarres)
+- LinkedIn: [Joseph Irirwanirira](https://www.linkedin.com/in/masouma-modarresi-9572a41b5/)
 
 ## 🤝 Contributing
 
