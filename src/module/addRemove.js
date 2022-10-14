@@ -1,13 +1,35 @@
-// declare a todo
-let todos = [];
+const form = document.querySelector('form');
+const input = document.querySelector('.input');
 
-// save to local storage
+let todos = [];
+let todo;
+
+// function  saving todos to the local storage
 const saveTodo = () => {
   const allTodos = JSON.stringify(todos);
   localStorage.setItem('todos', allTodos);
 };
 
-// remove function
+// function getting stored thing from the storage
+const getStoredTodos = () => {
+  todos = JSON.parse(localStorage.getItem('todos'));
+};
+
+const store = () => {
+  todo = {
+    Description: input.value,
+    id: todos.length + 1,
+    completed: false,
+  };
+  todos.push(todo);
+  saveTodo();
+};
+
+// function clearing the input field
+const clear = () => {
+  input.value = '';
+};
+
 const removeTask = (id) => {
   todos = todos.filter((task) => task.id !== id);
   todos.forEach((todo, id) => {
@@ -21,7 +43,6 @@ const completedTodo = (stats, index) => {
   saveTodo();
 };
 
-// Add function
 const addTask = (todo) => {
   const ul = document.createElement('div');
   const checkBox = document.createElement('input');
@@ -31,7 +52,7 @@ const addTask = (todo) => {
   const newInp = document.createElement('input');
   newInp.type = 'text';
   newInp.classList.add('newInput');
-  newInp.value = todo.Description;
+  newInp.value = todo.Description;// remove functionue = todo.Description;
 
   checkBox.onclick = (e) => {
     completedTodo(e.target.checked, todo.id);
@@ -64,4 +85,56 @@ const addTask = (todo) => {
 };
 todos.forEach(addTask);
 
-export { addTask, removeTask };
+const editTodoList = () => {
+  const editInput = document.querySelectorAll('.newInput');
+  editInput.forEach((edits, indexy) => {
+    edits.addEventListener('change', () => {
+      todos.forEach((todo, index) => {
+        if (indexy === index) {
+          todo.Description = edits.value;
+          saveTodo();
+        }
+      });
+    });
+  });
+};
+editTodoList();
+
+function formSubmission() {
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    if (input.value !== '') {
+      store();
+      addTask(todo);
+      clear();
+    }
+  });
+}
+
+const populateTasks = () => {
+  if (localStorage.getItem('todos')) {
+    getStoredTodos();
+    todos.map((task) => {
+      addTask(task);
+      return task;
+    });
+  } else {
+    todos.map((task) => {
+      addTask(task);
+      return task;
+    });
+  }
+};
+
+const clearCompleted = () => {
+  todos = todos.filter((task) => task.completed !== true);
+  todos.forEach((todo, id) => {
+    todo.id = id + 1;
+  });
+  saveTodo();
+  window.location.reload();
+};
+
+export {
+  formSubmission, editTodoList, populateTasks, clearCompleted,
+};
